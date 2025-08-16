@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+
+<link rel="preload" href="https://scripts.converteai.net/80a6a49a-7ebf-469d-993e-79d7f30f1366/players/68a0937a95de0adfa0e653eb/v4/embed.html">
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/80a6a49a-7ebf-469d-993e-79d7f30f1366/players/68a0937a95de0adfa0e653eb/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/80a6a49a-7ebf-469d-993e-79d7f30f1366/68a0935eba4d516c68b0da44/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saúde – G1 Style</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Faixa vermelha estilo G1 */
+    .faixa-vermelha {
+      background-color: #a30000;
+      color: #fff;
+      text-align: center;
+      padding: 18px 10px;
+    }
+
+    .faixa-vermelha h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    /* Conteúdo centralizado */
+    .conteudo {
+      max-width: 800px;
+      margin: 35px auto;
+      padding: 0 20px;
+      text-align: justify; /* justificado */
+    }
+
+    /* Manchete */
+    .conteudo h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .vermelho {
+      color: #c4170c;
+    }
+    
+
+    /* Texto principal */
+    .conteudo p {
+      font-size: 1.25rem;
+      margin: 15px 0;
+    }
+
+    /* Autor e rodapé */
+    .autor {
+      font-weight: bold;
+      margin-top: 25px;
+      font-size: 1.15rem;
+    }
+
+    .especialista {
+      color: #666;
+      font-style: italic;
+      margin-top: 5px;
+      font-size: 1.05rem;
+    }
+
+    .atualizado {
+      color: #999;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      .faixa-vermelha h1 {
+        font-size: 1.8rem;
+      }
+      .conteudo h2 {
+        font-size: 1.5rem;
+      }
+      .conteudo p {
+        font-size: 1.05rem;
+      }
+    }
+
+    /* Botão CTA ajustado */
+.cta {
+  display: none; /* botão escondido até o vídeo acabar */
+  background: #1cbf44;
+  color: #fff;
+  font-size: 14px; /* menor que antes */
+  font-weight: bold;
+  padding: 12px 18px; /* um pouco menor */
+  border-radius: 12px;
+  margin: 20px auto; /* centraliza horizontalmente */
+  max-width: 300px; /* menor que antes */
+  box-shadow: 0 4px 0 #0e7227;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block; /* necessário para centralização com margin auto */
+  text-align: center; /* garante que o texto fique centralizado */
+  transition: transform 0.2s;
+  animation: pulse 1s infinite;
+}
+
+.cta:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 4px 0 #0e7227; }
+  50% { transform: scale(1.05); box-shadow: 0 6px 0 #0e7227; }
+  100% { transform: scale(1); box-shadow: 0 4px 0 #0e7227; }
+}
+
+.cta {
+  animation: pulse 1s infinite;
+}
+
+/* Sessão de imagens */
+  .image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaço entre as imagens */
+    margin-top: 30px;
+  }
+  .centered-img {
+    width: 100%;
+    max-width: 400px; /* largura ideal desktop */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  @media(max-width: 480px){
+    .extra-texts {
+      flex-direction: column;
+      align-items: center;
+    }
+    .centered-img {
+      max-width: 90%; /* ajuste mobile */
+    }
+  }
+
+
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- Faixa vermelha estilo G1 -->
+  <div class="faixa-vermelha">
+    <h1>SAÚDE</h1>
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="conteudo">
+    <h2>
+      Truque de 7 Segundos das <span class="vermelho">Celebridades dos EUA</span>
+    </h2>
+
+    <p>
+      Derrete até <span class="vermelho">28kg de Gordura Corporal em 30 Dias</span>.
+    </p>
+
+    <p>
+      Estudo descobre como essas famosas conseguem religar o 
+      <span class="vermelho">"hormônio assassino de gordura"</span> com uma receita simples e barata, 
+      e conseguem emagrecer mesmo depois dos 50 anos de idade.
+    </p>
+    
+    <p class="autor">Por Luciana Santos</p>
+    <p class="especialista">(Especialista em Emagrecimento Natural em Miami)</p>
+    <p class="atualizado">Atualizado há 2 horas</p>
+  </div>
+
+  <script type="text/javascript">
+  var s = document.createElement("script");
+  s.src = "https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js";
+  s.async = true;
+  document.head.appendChild(s);
+</script>
+
+<div id="ifr_68a0937a95de0adfa0e653eb_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;">
+  <div style="position: relative; padding: 133.3333333333% 0 0 0;" id="ifr_68a0937a95de0adfa0e653eb_aspect">
+    <iframe
+      frameborder="0"
+      allowfullscreen
+      src="about:blank"
+      id="ifr_68a0937a95de0adfa0e653eb"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+      referrerpolicy="origin"
+      onload="this.onload=null; this.src='https://scripts.converteai.net/80a6a49a-7ebf-469d-993e-79d7f30f1366/players/68a0937a95de0adfa0e653eb/v4/embed.html' + (location.search || '?') + '&vl=' + encodeURIComponent(location.href)">
+    </iframe>
+  </div>
+</div>
+
+<!-- Botão CTA -->
+  <a href="https://quiz.cakto.com.br/preview/sal-rosa--FqNgJO" id="ctaBtn" class="cta">
+    QUERO A RECEITA DO TRUQUE DO SAL ROSA AMERICANO!
+  </a>
+
+<!-- Sessão de Imagens -->
+  <div class="image-section">
+    <img src="footer.png" alt="Imagem 1" class="centered-img">
+          
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Seleciona os elementos que queremos esconder
+  var ctas = document.querySelectorAll(".cta");
+  var images = document.querySelectorAll(".image-section");
+
+  // Guardamos o display original
+  var elementsToHide = [];
+  ctas.forEach(el => elementsToHide.push({el: el, originalDisplay: window.getComputedStyle(el).display}));
+  images.forEach(el => elementsToHide.push({el: el, originalDisplay: window.getComputedStyle(el).display}));
+
+  // Esconde tudo inicialmente
+  elementsToHide.forEach(item => item.el.style.display = "none");
+
+  // Mostra os elementos após 5min20s
+  setTimeout(function() {
+    elementsToHide.forEach(item => item.el.style.display = item.originalDisplay);
+  }, 355000); // 320.000ms = 5min20s
+});
+</script>
+
+</body>
+</html>
