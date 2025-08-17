@@ -263,19 +263,22 @@ document.addEventListener("DOMContentLoaded", function() {
   // Seleciona os elementos que queremos esconder
   var ctas = document.querySelectorAll(".cta");
   var images = document.querySelectorAll(".image-section");
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Seleciona apenas o botão CTA (não mexe nas imagens)
+  var ctas = document.querySelectorAll(".cta");
 
   // Guardamos o display original
   var elementsToHide = [];
   ctas.forEach(el => elementsToHide.push({el: el, originalDisplay: window.getComputedStyle(el).display}));
-  images.forEach(el => elementsToHide.push({el: el, originalDisplay: window.getComputedStyle(el).display}));
 
-  // Esconde tudo inicialmente
+  // Esconde o botão inicialmente
   elementsToHide.forEach(item => item.el.style.display = "none");
 
-  // Mostra os elementos após 5min20s
+  // Mostra o botão após 5min55s (355000 ms)
   setTimeout(function() {
     elementsToHide.forEach(item => item.el.style.display = item.originalDisplay);
-  }, 355000); // 320.000ms = 5min20s
+  }, 355000);
 });
 </script>
 
