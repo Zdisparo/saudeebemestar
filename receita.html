@@ -275,10 +275,16 @@ document.addEventListener("DOMContentLoaded", function() {
   // Esconde tudo inicialmente
   elementsToHide.forEach(item => item.el.style.display = "none");
 
-  // Mostra os elementos após 5min20s
+  // Mostra os elementos após 5min35s e faz scroll suave para o primeiro botão
   setTimeout(function() {
     elementsToHide.forEach(item => item.el.style.display = item.originalDisplay);
-  }, 335000); // 320.000ms = 5min20s
+    
+    // Pega o primeiro botão CTA e rola suavemente até ele
+    var firstCTA = document.querySelector(".cta");
+    if (firstCTA) {
+      firstCTA.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, 335000); // 335.000ms = 5min35s
 });
 </script>
 
