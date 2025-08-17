@@ -257,6 +257,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+  <script>
+  const ctaBtn = document.getElementById('ctaBtn');
+
+  const observer = new MutationObserver(() => {
+    if (ctaBtn.style.display !== 'none') {
+      ctaBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(ctaBtn, { attributes: true, attributeFilter: ['style'] });
+</script>
 
 </body>
 </html>
