@@ -3,34 +3,7 @@
 <head>
 
 
-    <!-- Aqui dentro vai o Pixel -->
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;
-      n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];
-      t=b.createElement(e);t.async=!0;
-      t.src=v;
-      s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '2987939374720978');
-
-    // Verifica se já marcou PageView nesse navegador
-    if (!localStorage.getItem("pixel_pageview_sent")) {
-      fbq('track', 'PageView');
-      localStorage.setItem("pixel_pageview_sent", "true");
-      console.log("Pixel PageView enviado e salvo no localStorage ✅");
-    } else {
-      console.log("Pixel PageView já enviado antes, não duplicado ❌");
-    }
-  </script>
-
+    
   <noscript>
     <img height="1" width="1" style="display:none"
          src="https://www.facebook.com/tr?id=2987939374720978&ev=PageView&noscript=1"/>
