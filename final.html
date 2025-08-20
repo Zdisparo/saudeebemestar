@@ -1,353 +1,322 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Post Fake Facebook</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-    }
-    .post {
-      background: #fff;
-      width: 100%;
-      max-width: 600px; /* aumenta um pouco no desktop */
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .post-header {
-      padding: 15px;
-      font-weight: bold;
-      font-size: 16px;
-      border-bottom: 1px solid #ddd;
-    }
-    .post-header span {
-      color: #65676b;
-      font-weight: normal;
-      font-size: 14px;
-      margin-left: 8px;
-    }
-    .post-body {
-      padding: 15px;
-      font-size: 15px;
-      color: #1c1e21;
-    }
-    .post-body img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .post-stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 0 15px 5px 15px;
-      font-size: 13px;
-      color: #65676b;
-    }
-    .reactions {
-      display: flex;
-      align-items: center;
-      margin-top: 5px;
-    }
-    .reactions img {
-      width: 18px;
-      height: 18px;
-      margin-right: -4px;
-    }
-    .post-actions {
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      padding: 8px 0;
-      display: flex;
-      justify-content: space-around;
-      color: #65676b;
-      font-size: 14px;
-    }
-    .post-actions span {
-      cursor: pointer;
-      padding: 6px 20px;
-      border-radius: 5px;
-    }
-    .post-actions span:hover {
-      background: #f2f2f2;
-    }
-    .comments {
-      padding: 10px 15px;
-    }
-    .comment {
-      display: flex;
-      margin-top: 10px;
-    }
-    .comment img.avatar {
-      width: 36px; 
-      height: 36px;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
-    .comment-body {
-      background: #f0f2f5;
-      border-radius: 18px;
-      padding: 10px 14px;
-      max-width: 90%;
-    }
-    .comment-body .name {
-      font-weight: bold;
-      font-size: 14px;
-      color: #050505;
-    }
-    .comment-body .text {
-      font-size: 15px;
-      margin-top: 2px;
-    }
-    .comment-actions {
-      font-size: 13px;
-      color: #65676b;
-      margin-left: 50px;
-      margin-top: 3px;
-    }
-    .comment-actions span {
-      margin-right: 10px;
-      cursor: pointer;
-    }
-    .comment-image {
-      width: 100%;
-      max-width: 280px;
-      margin-top: 5px;
-      border-radius: 8px;
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    .popup-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      width: 90%;
-      max-width: 320px;
-    }
-    .popup button {
-      margin-top: 10px;
-      padding: 8px 15px;
-      border: none;
-      background: #1877f2;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+<meta charset="UTF-8">
+<title>Post Fake Facebook</title>
 
-    /* Ajustes mobile */
-    @media (max-width: 480px) {
-      body {
-        padding: 5px;
-      }
-      .post {
-        border-radius: 0;
-      }
-      .post-header {
-        font-size: 15px;
-      }
-      .post-body {
-        font-size: 16px;
-      }
-      .comment-body {
-        font-size: 15px;
-        padding: 8px 12px;
-      }
-      .comment-body .name {
-        font-size: 14px;
-      }
-      .comment-body .text {
-        font-size: 15px;
-      }
-      .post-actions span {
-        padding: 6px 12px;
-      }
-      .comment img.avatar {
-        width: 32px;
-        height: 32px;
-      }
-    }
-  </style>
+<!-- Meta viewport ajustado para zoom maior no mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+
+<style>
+  body { 
+    font-family: Arial, sans-serif; 
+    background: #f0f2f5; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0; 
+    margin: 0; 
+    min-height: 100vh; 
+  }
+  .post { 
+    background: #fff; 
+    width: 100%; 
+    max-width: 600px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    overflow: hidden; 
+  }
+  .post-header { 
+    padding: 15px; 
+    font-weight: bold; 
+    font-size: 16px; 
+    border-bottom: 1px solid #ddd; 
+    text-align: center;
+  }
+  .post-header span { 
+    color: #65676b; 
+    font-weight: normal; 
+    font-size: 14px; 
+    margin-left: 8px; 
+  }
+  .post-body { 
+    padding: 15px; 
+    font-size: 15px; 
+    color: #1c1e21; 
+    text-align: center;
+  }
+  .post-body img { 
+    width: 100%; 
+    border-radius: 8px; 
+  }
+  .post-stats { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    padding: 0 15px 5px 15px; 
+    font-size: 13px; 
+    color: #65676b; 
+  }
+  .reactions { 
+    display: flex; 
+    align-items: center; 
+    margin-top: 5px; 
+  }
+  .reactions img { 
+    width: 18px; 
+    height: 18px; 
+    margin-right: -4px; 
+  }
+  .post-actions { 
+    border-top: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd; 
+    padding: 8px 0; 
+    display: flex; 
+    justify-content: space-around; 
+    color: #65676b; 
+    font-size: 14px; 
+  }
+  .post-actions span { 
+    cursor: pointer; 
+    padding: 6px 20px; 
+    border-radius: 5px; 
+  }
+  .post-actions span:hover { 
+    background: #f2f2f2; 
+  }
+  .comments { 
+    padding: 10px 15px; 
+  }
+  .comment { 
+    display: flex; 
+    margin-top: 10px; 
+  }
+  .comment img.avatar { 
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    margin-right: 8px; 
+  }
+  .comment-body { 
+    background: #f0f2f5; 
+    border-radius: 18px; 
+    padding: 10px 14px; 
+    max-width: 90%; 
+  }
+  .comment-body .name { 
+    font-weight: bold; 
+    font-size: 14px; 
+    color: #050505; 
+  }
+  .comment-body .text { 
+    font-size: 15px; 
+    margin-top: 2px; 
+  }
+  .comment-actions { 
+    font-size: 13px; 
+    color: #65676b; 
+    margin-left: 50px; 
+    margin-top: 3px; 
+  }
+  .comment-actions span { 
+    margin-right: 10px; 
+    cursor: pointer; 
+  }
+  .comment-image { 
+    width: 100%; 
+    max-width: 280px; 
+    margin-top: 5px; 
+    border-radius: 8px; 
+  }
+  .popup { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000; 
+  }
+  .popup-content { 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    text-align: center; 
+    width: 90%; 
+    max-width: 320px; 
+  }
+  .popup button { 
+    margin-top: 10px; 
+    padding: 8px 15px; 
+    border: none; 
+    background: #1877f2; 
+    color: #fff; 
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+
+  @media (max-width: 480px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .post {
+    width: 100vw;       /* ocupa toda a largura da tela */
+    max-width: 100vw;   /* garante que não ultrapasse */
+    border-radius: 0;   /* opcional: mais parecido com app FB */
+  }
+  .post-header { font-size: 20px; padding: 16px; }
+  .post-body { font-size: 20px; padding: 16px; }
+}
+
+</style>
 </head>
 <body>
-  <div class="post">
-    <div class="post-header">
-      Post de Figuras públicas com possíveis transtornos mentais 
-      <span>1h</span>
+  
+<div class="post">
+  <div class="post-header">
+    Post de Figuras públicas com possíveis transtornos mentais 
+    <span>1h</span>
+  </div>
+  <div class="post-body">
+    Confira também: Tacos de Baseball Dizeres 86CM Taco De Beisebol Totalmente Em Liga  
+    <a href="#" style="color:#1877f2;">https://s.shopee.com.br/8AM1tYgSZz</a>
+    <br><br>
+    <img src="https://saudeebemestar-qigl.onrender.com/logo.png">
+  </div>
+  <div class="post-stats">
+    <div class="reactions">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ghKuVmxtqBLiNskTYWqziQ1uQ7G3a66o2A&s">
+      <img src="https://static.vecteezy.com/system/resources/previews/018/824/830/non_2x/heart-emoji-file-free-png.png">
+      <img src="https://img.freepik.com/psd-gratuitas/3d-like-icon-on-blue-circle_84443-55887.jpg?semt=ais_hybrid&w=740&q=80">
+      <span id="postLikes">1,6 mil</span>
     </div>
-    <div class="post-body">
-      Confira também: Tacos de Baseball Dizeres 86CM Taco De Beisebol Totalmente Em Liga  
-      <a href="#" style="color:#1877f2;">https://s.shopee.com.br/8AM1tYgSZz</a>
-      <br><br>
-      <img src="https://i.ibb.co/5YVRXpt/taco.png">
+    <div>
+      <span id="commentCount">501 comentários</span> · 56 compartilhamentos
     </div>
-    <div class="post-stats">
-      <div class="reactions">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ghKuVmxtqBLiNskTYWqziQ1uQ7G3a66o2A&s">
-        <img src="https://static.vecteezy.com/system/resources/previews/018/824/830/non_2x/heart-emoji-file-free-png.png">
-        <img src="https://img.freepik.com/psd-gratuitas/3d-like-icon-on-blue-circle_84443-55887.jpg?semt=ais_hybrid&w=740&q=80">
-        <span id="postLikes">1,6 mil</span>
+  </div>
+  <div class="post-actions">
+    <span onclick="likePost()">Curtir</span>
+    <span onclick="showPopup()">Comentar</span>
+    <span onclick="showPopup()">Compartilhar</span>
+  </div>
+  <div class="comments" id="comments"></div>
+</div>
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <p>Você precisa Fazer Parte do Grupo Fechado para comentar/compartilhar.</p>
+    <button onclick="closePopup()">Fechar</button>
+  </div>
+</div>
+
+<script>
+function setCookie(name, value, days) {
+  const d = new Date();
+  d.setTime(d.getTime() + (days*24*60*60*1000));
+  document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+}
+function getCookie(name) {
+  const v = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+  return v ? v[2] : null;
+}
+function formatLikes(num) { if(num>=1000) return (num/1000).toFixed(1).replace('.',',')+" mil"; return num; }
+
+let postLikes = parseInt(getCookie("postLikes")) || 1600;
+document.getElementById("postLikes").innerText = formatLikes(postLikes);
+function likePost(){ postLikes++; setCookie("postLikes", postLikes, 7); document.getElementById("postLikes").innerText = formatLikes(postLikes); }
+
+const commentsDiv = document.getElementById("comments");
+
+const fixedComments = [
+  {name:"Carla Souza", text:"Já estou usando e amando 😍", avatar:"https://via.placeholder.com/36", img:"https://elidaadica.com.br/wp-content/uploads/2016/10/antes-e-durante-eli-nascimento.png"},
+  {name:"Patrícia Lima", text:"Gente isso funciona mesmo!", avatar:"https://via.placeholder.com/36"},
+  {name:"Fernanda Oliveira", text:"Vale cada centavo 👏", avatar:"https://via.placeholder.com/36"},
+  {name:"Juliana Santos", text:"Minha amiga me recomendou 💖", avatar:"https://via.placeholder.com/36"},
+  {name:"Marta Rocha", text:"Estou no 3º dia e já sinto diferença!", avatar:"https://via.placeholder.com/36"},
+  {name:"Cláudia Ferreira", text:"Super recomendo!!!", avatar:"https://via.placeholder.com/36"}
+];
+
+const randomComments = [
+  {name:"Vanessa Costa", text:"Maravilhoso, nunca mais fico sem 👌", avatar:"https://scontent.fbps3-1.fna.fbcdn.net/v/t39.30808-1/..."},
+  {name:"Luciana Mendes", text:"Achei incrível!!!", avatar:"https://scontent.fbps3-1.fna.fbcdn.net/v/t1.6435-1/..."},
+  {name:"Renata Gomes", text:"Funciona mesmo!", avatar:"https://scontent.fbps3-1.fna.fbcdn.net/v/t39.30808-1/..."}
+];
+
+function renderComments(){
+  commentsDiv.innerHTML = "";
+
+  const first = fixedComments[0];
+  const divFirst = document.createElement("div");
+  divFirst.className = "comment";
+  divFirst.innerHTML = `
+    <img src="${first.avatar}" class="avatar">
+    <div>
+      <div class="comment-body">
+        <div class="name">${first.name}</div>
+        <img src="${first.img}" class="comment-image">
       </div>
+      <div class="comment-actions">
+        <span onclick="likeComment(this)">Curtir · ${Math.floor(Math.random()*80)+10}</span>
+        <span onclick="showPopup()">Responder</span>
+      </div>
+    </div>
+  `;
+  commentsDiv.appendChild(divFirst);
+
+  for(let i=1; i<fixedComments.length; i++){
+    const c = fixedComments[i];
+    const div = document.createElement("div");
+    div.className = "comment";
+    div.innerHTML = `
+      <img src="${c.avatar}" class="avatar">
       <div>
-        <span id="commentCount">501 comentários</span> · 56 compartilhamentos
-      </div>
-    </div>
-    <div class="post-actions">
-      <span onclick="likePost()">Curtir</span>
-      <span onclick="showPopup()">Comentar</span>
-      <span onclick="showPopup()">Compartilhar</span>
-    </div>
-    <div class="comments" id="comments"></div>
-  </div>
-
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <p>Você precisa Fazer Parte do Grupo Fechado para comentar/compartilhar.</p>
-      <button onclick="closePopup()">Fechar</button>
-    </div>
-  </div>
-
-  <script>
-    // seu código JavaScript permanece igual
-  </script>
-</body>
-</html>
-
-
-  <script>
-    // Helpers de cookies
-    function setCookie(name, value, days) {
-      const d = new Date();
-      d.setTime(d.getTime() + (days*24*60*60*1000));
-      document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
-    }
-    function getCookie(name) {
-      const v = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
-      return v ? v[2] : null;
-    }
-
-    // Função para formatar com "mil"
-    function formatLikes(num) {
-      if (num >= 1000) {
-        return (num/1000).toFixed(1).replace('.', ',') + " mil";
-      }
-      return num;
-    }
-
-    // Curtidas do post com cookie
-    let postLikes = parseInt(getCookie("postLikes")) || 1600;
-    document.getElementById("postLikes").innerText = formatLikes(postLikes);
-
-    function likePost(){
-      postLikes++;
-      setCookie("postLikes", postLikes, 7);
-      document.getElementById("postLikes").innerText = formatLikes(postLikes);
-    }
-
-    // Comentários com cookie
-    let commentCount = parseInt(getCookie("commentCount")) || 5;
-    document.getElementById("commentCount").innerText = commentCount + " comentários";
-
-    const names = [
-      "Carla Souza", "Patrícia Lima", "Fernanda Oliveira", "Juliana Santos",
-      "Marta Rocha", "Cláudia Ferreira", "Vanessa Costa", "Luciana Mendes", "Renata Gomes"
-    ];
-    const commentsText = [
-      "Já estou usando e amando 😍", 
-      "Gente isso funciona mesmo!",
-      "Vale cada centavo 👏", 
-      "Minha amiga me recomendou 💖",
-      "Estou no 3º dia e já sinto diferença!", 
-      "Super recomendo!!!",
-      "Maravilhoso, nunca mais fico sem 👌", 
-      "Achei incrível!!!"
-    ];
-
-    const commentsDiv = document.getElementById("comments");
-
-    function renderComments(){
-      commentsDiv.innerHTML = "";
-
-      // Apenas 1 comentário com imagem
-      const name = names[Math.floor(Math.random()*names.length)];
-      const avatarId = [5, 15, 25, 35, 45, 55, 65][Math.floor(Math.random()*7)]; // IDs femininos
-      const div = document.createElement("div");
-      div.className = "comment";
-      div.innerHTML = `
-        <img src="https://scontent.fbps3-1.fna.fbcdn.net/v/t39.30808-6/474449349_1313201886383105_5932655663492480855_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=hB6XetJ446MQ7kNvwFKQOhX&_nc_oc=AdmEmeAXz7sZSkwor3JN2qv0N9W86-y68Cczamk63kgv4g4fZXxIdfWmcqyuekIuOskdDlm_bTOTsElEY_mqcrkV&_nc_zt=23&_nc_ht=scontent.fbps3-1.fna&_nc_gid=mBs7zDpaAaZJ6OSOQn2TIw&oh=00_AfWVQT8jUgHlr1w5Ypi1hoNTdHIju-RMEUcn1M1tRPKzNg&oe=68ABDADB" class="avatar">
-        <div>
-          <div class="comment-body">
-            <div class="name">${name}</div>
-            <img src="https://elidaadica.com.br/wp-content/uploads/2016/10/antes-e-durante-eli-nascimento.png" class="comment-image">
-          </div>
-          <div class="comment-actions">
-            <span onclick="likeComment(this)">Curtir · ${Math.floor(Math.random()*80)+10}</span>
-            <span onclick="showPopup()">Responder</span>
-          </div>
+        <div class="comment-body">
+          <div class="name">${c.name}</div>
+          <div class="text">${c.text}</div>
         </div>
-      `;
-      commentsDiv.appendChild(div);
+        <div class="comment-actions">
+          <span onclick="likeComment(this)">Curtir</span>
+          <span onclick="showPopup()">Responder</span>
+        </div>
+      </div>
+    `;
+    commentsDiv.appendChild(div);
+  }
 
-      // Restante texto normal
-      for(let i=1; i<commentCount; i++){
-        const name = names[Math.floor(Math.random()*names.length)];
-        const text = commentsText[Math.floor(Math.random()*commentsText.length)];
-        const avatarId = [5, 15, 25, 35, 45, 55, 65][Math.floor(Math.random()*7)];
+  const shuffled = randomComments.sort(()=>0.5-Math.random());
+  shuffled.forEach(c=>{
+    const div = document.createElement("div");
+    div.className = "comment";
+    div.innerHTML = `
+      <img src="${c.avatar}" class="avatar">
+      <div>
+        <div class="comment-body">
+          <div class="name">${c.name}</div>
+          <div class="text">${c.text}</div>
+        </div>
+        <div class="comment-actions">
+          <span onclick="likeComment(this)">Curtir</span>
+          <span onclick="showPopup()">Responder</span>
+        </div>
+      </div>
+    `;
+    commentsDiv.appendChild(div);
+  });
+}
 
-        const div = document.createElement("div");
-        div.className = "comment";
-        div.innerHTML = `
-          <img src="https://i.pravatar.cc/32?img=${avatarId}" class="avatar">
-          <div>
-            <div class="comment-body">
-              <div class="name">${name}</div>
-              <div class="text">${text}</div>
-            </div>
-            <div class="comment-actions">
-              <span onclick="likeComment(this)">Curtir</span>
-              <span onclick="showPopup()">Responder</span>
-            </div>
-          </div>
-        `;
-        commentsDiv.appendChild(div);
-      }
-    }
+function likeComment(el){
+  if(!el.dataset.liked){ el.innerText = "Curtido · 1"; el.dataset.liked=true; }
+  else { let count=parseInt(el.innerText.split("·")[1]||0); count++; el.innerText="Curtido · "+count; }
+}
+function showPopup(){ document.getElementById("popup").style.display="flex"; }
+function closePopup(){ document.getElementById("popup").style.display="none"; }
 
-    function likeComment(el){
-      if(!el.dataset.liked){
-        el.innerText = "Curtido · 1";
-        el.dataset.liked = true;
-      } else {
-        let count = parseInt(el.innerText.split("·")[1]||0);
-        count++;
-        el.innerText = "Curtido · " + count;
-      }
-    }
-
-    function showPopup(){
-      document.getElementById("popup").style.display = "flex";
-    }
-    function closePopup(){
-      document.getElementById("popup").style.display = "none";
-    }
-
-    // Crescimento fake de comentários
-    commentCount += Math.floor(Math.random()*3); 
-    setCookie("commentCount", commentCount, 7);
-
-    renderComments();
-  </script>
+renderComments();
+</script>
 </body>
 </html>
