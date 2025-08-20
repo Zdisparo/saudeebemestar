@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <title>Post Fake Facebook</title>
 
-<!-- Meta viewport ajustado para zoom maior no mobile -->
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-
 
 <style>
   body { 
@@ -14,7 +12,6 @@
     background: #f0f2f5; 
     display: flex; 
     justify-content: center; 
-    align-items: center; 
     padding: 0; 
     margin: 0; 
     min-height: 100vh; 
@@ -26,6 +23,7 @@
     border-radius: 8px; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
     overflow: hidden; 
+    margin-top: 20px;
   }
   .post-header { 
     padding: 15px; 
@@ -132,13 +130,10 @@
   .popup { 
     display: none; 
     position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
     background: rgba(0,0,0,0.5); 
-    align-items: center; 
-    justify-content: center; 
+    align-items: center; justify-content: center; 
     z-index: 1000; 
   }
   .popup-content { 
@@ -160,19 +155,11 @@
   }
 
   @media (max-width: 480px) {
-  body {
-    padding: 0;
-    margin: 0;
+    body { padding:0; margin:0; }
+    .post { width: 100vw; max-width: 100vw; border-radius:0; }
+    .post-header { font-size: 20px; padding: 16px; }
+    .post-body { font-size: 20px; padding: 16px; }
   }
-  .post {
-    width: 100vw;       /* ocupa toda a largura da tela */
-    max-width: 100vw;   /* garante que não ultrapasse */
-    border-radius: 0;   /* opcional: mais parecido com app FB */
-  }
-  .post-header { font-size: 20px; padding: 16px; }
-  .post-body { font-size: 20px; padding: 16px; }
-}
-
 </style>
 </head>
 <body>
@@ -209,7 +196,7 @@
 
 <div class="popup" id="popup">
   <div class="popup-content">
-    <p>Você precisa Fazer Parte do Grupo Fechado para comentar/compartilhar.</p>
+    <p>Você precisa Fazer Parte do Grupo Fechado Sal Rosa Americano para comentar/compartilhar.</p>
     <button onclick="closePopup()">Fechar</button>
   </div>
 </div>
@@ -233,23 +220,24 @@ function likePost(){ postLikes++; setCookie("postLikes", postLikes, 7); document
 const commentsDiv = document.getElementById("comments");
 
 const fixedComments = [
-  {name:"Carla Souza", text:"Já estou usando e amando 😍", avatar:"https://via.placeholder.com/36", img:"https://elidaadica.com.br/wp-content/uploads/2016/10/antes-e-durante-eli-nascimento.png"},
-  {name:"Patrícia Lima", text:"Gente isso funciona mesmo!", avatar:"https://via.placeholder.com/36"},
-  {name:"Fernanda Oliveira", text:"Vale cada centavo 👏", avatar:"https://via.placeholder.com/36"},
-  {name:"Juliana Santos", text:"Minha amiga me recomendou 💖", avatar:"https://via.placeholder.com/36"},
-  {name:"Marta Rocha", text:"Estou no 3º dia e já sinto diferença!", avatar:"https://via.placeholder.com/36"},
-  {name:"Cláudia Ferreira", text:"Super recomendo!!!", avatar:"https://via.placeholder.com/36"}
+  {name:"Carla Souza", text:"Já estou usando e amando 😍", avatar:"https://randomuser.me/api/portraits/women/1.jpg", img:"https://elidaadica.com.br/wp-content/uploads/2016/10/antes-e-durante-eli-nascimento.png"},
+  {name:"Patrícia Lima", text:"Gente isso funciona mesmo!", avatar:"https://randomuser.me/api/portraits/women/2.jpg"},
+  {name:"Fernanda Oliveira", text:"Vale cada centavo 👏", avatar:"https://randomuser.me/api/portraits/women/3.jpg"},
+  {name:"Juliana Santos", text:"Minha amiga me recomendou 💖", avatar:"https://randomuser.me/api/portraits/women/4.jpg"},
+  {name:"Marta Rocha", text:"Estou no 3º dia e já sinto diferença!", avatar:"https://randomuser.me/api/portraits/women/5.jpg"},
+  {name:"Cláudia Ferreira", text:"Super recomendo!!!", avatar:"https://randomuser.me/api/portraits/women/6.jpg"}
 ];
 
 const randomComments = [
-  {name:"Vanessa Costa", text:"Maravilhoso, nunca mais fico sem 👌", avatar:"https://scontent.fbps3-1.fna.fbcdn.net/v/t39.30808-1/..."},
-  {name:"Luciana Mendes", text:"Achei incrível!!!", avatar:"https://scontent.fbps3-1.fna.fbcdn.net/v/t1.6435-1/..."},
-  {name:"Renata Gomes", text:"Funciona mesmo!", avatar:"https://scontent.fbps3-1.fna.fbcdn.net/v/t39.30808-1/..."}
+  {name:"Vanessa Costa", text:"Maravilhoso, nunca mais fico sem 👌", avatar:"https://randomuser.me/api/portraits/women/7.jpg"},
+  {name:"Luciana Mendes", text:"Achei incrível!!!", avatar:"https://randomuser.me/api/portraits/women/8.jpg"},
+  {name:"Renata Gomes", text:"Funciona mesmo!", avatar:"https://randomuser.me/api/portraits/women/9.jpg"}
 ];
 
 function renderComments(){
   commentsDiv.innerHTML = "";
 
+  // Primeiro comentário com imagem
   const first = fixedComments[0];
   const divFirst = document.createElement("div");
   divFirst.className = "comment";
@@ -268,6 +256,7 @@ function renderComments(){
   `;
   commentsDiv.appendChild(divFirst);
 
+  // Demais fixedComments
   for(let i=1; i<fixedComments.length; i++){
     const c = fixedComments[i];
     const div = document.createElement("div");
@@ -288,6 +277,7 @@ function renderComments(){
     commentsDiv.appendChild(div);
   }
 
+  // Random comments
   const shuffled = randomComments.sort(()=>0.5-Math.random());
   shuffled.forEach(c=>{
     const div = document.createElement("div");
@@ -310,8 +300,14 @@ function renderComments(){
 }
 
 function likeComment(el){
-  if(!el.dataset.liked){ el.innerText = "Curtido · 1"; el.dataset.liked=true; }
-  else { let count=parseInt(el.innerText.split("·")[1]||0); count++; el.innerText="Curtido · "+count; }
+  if(!el.dataset.liked){ 
+    el.innerText = "Curtido · 1"; 
+    el.dataset.liked=true; 
+  } else { 
+    let count=parseInt(el.innerText.split("·")[1]||0); 
+    count++; 
+    el.innerText="Curtido · "+count; 
+  }
 }
 function showPopup(){ document.getElementById("popup").style.display="flex"; }
 function closePopup(){ document.getElementById("popup").style.display="none"; }
