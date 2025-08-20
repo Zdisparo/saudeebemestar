@@ -9,12 +9,12 @@
       background: #f0f2f5;
       display: flex;
       justify-content: center;
-      padding: 20px;
+      padding: 10px;
     }
     .post {
       background: #fff;
       width: 100%;
-      max-width: 500px;
+      max-width: 600px; /* aumenta um pouco no desktop */
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       overflow: hidden;
@@ -42,6 +42,7 @@
     }
     .post-stats {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       padding: 0 15px 5px 15px;
       font-size: 13px;
@@ -50,6 +51,7 @@
     .reactions {
       display: flex;
       align-items: center;
+      margin-top: 5px;
     }
     .reactions img {
       width: 18px;
@@ -59,7 +61,7 @@
     .post-actions {
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
-      padding: 5px 0;
+      padding: 8px 0;
       display: flex;
       justify-content: space-around;
       color: #65676b;
@@ -67,7 +69,7 @@
     }
     .post-actions span {
       cursor: pointer;
-      padding: 5px 20px;
+      padding: 6px 20px;
       border-radius: 5px;
     }
     .post-actions span:hover {
@@ -81,27 +83,28 @@
       margin-top: 10px;
     }
     .comment img.avatar {
-      width: 32px; height: 32px;
+      width: 36px; 
+      height: 36px;
       border-radius: 50%;
       margin-right: 8px;
     }
     .comment-body {
       background: #f0f2f5;
       border-radius: 18px;
-      padding: 8px 12px;
-      max-width: 400px;
+      padding: 10px 14px;
+      max-width: 90%;
     }
     .comment-body .name {
       font-weight: bold;
-      font-size: 13px;
+      font-size: 14px;
       color: #050505;
     }
     .comment-body .text {
-      font-size: 14px;
+      font-size: 15px;
       margin-top: 2px;
     }
     .comment-actions {
-      font-size: 12px;
+      font-size: 13px;
       color: #65676b;
       margin-left: 50px;
       margin-top: 3px;
@@ -112,7 +115,7 @@
     }
     .comment-image {
       width: 100%;
-      max-width: 250px;
+      max-width: 280px;
       margin-top: 5px;
       border-radius: 8px;
     }
@@ -131,7 +134,8 @@
       padding: 20px;
       border-radius: 8px;
       text-align: center;
-      width: 300px;
+      width: 90%;
+      max-width: 320px;
     }
     .popup button {
       margin-top: 10px;
@@ -141,6 +145,39 @@
       color: #fff;
       border-radius: 5px;
       cursor: pointer;
+    }
+
+    /* Ajustes mobile */
+    @media (max-width: 480px) {
+      body {
+        padding: 5px;
+      }
+      .post {
+        border-radius: 0;
+      }
+      .post-header {
+        font-size: 15px;
+      }
+      .post-body {
+        font-size: 16px;
+      }
+      .comment-body {
+        font-size: 15px;
+        padding: 8px 12px;
+      }
+      .comment-body .name {
+        font-size: 14px;
+      }
+      .comment-body .text {
+        font-size: 15px;
+      }
+      .post-actions span {
+        padding: 6px 12px;
+      }
+      .comment img.avatar {
+        width: 32px;
+        height: 32px;
+      }
     }
   </style>
 </head>
@@ -181,6 +218,13 @@
       <button onclick="closePopup()">Fechar</button>
     </div>
   </div>
+
+  <script>
+    // seu código JavaScript permanece igual
+  </script>
+</body>
+</html>
+
 
   <script>
     // Helpers de cookies
