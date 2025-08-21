@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <title>Post Facebook</title>
 
-
-  <script
+<script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
   data-utmify-prevent-subids
@@ -13,8 +12,7 @@
   defer
 ></script>
 
-
-  <script>
+<script>
   window.pixelId = "68a340650511924c9b6cb146";
   var a = document.createElement("script");
   a.setAttribute("async", "");
@@ -35,7 +33,26 @@
     margin: 0; 
     min-height: 100vh; 
     overflow-x: hidden;
+    flex-direction: column;
   }
+  /* Barra do Facebook */
+  .fb-bar {
+    width: 100%;
+    height: 56px;
+    background: #1877f2;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .fb-logo {
+    color: #fff;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: Helvetica, Arial, sans-serif;
+    cursor: default;
+  }
+
   .post { 
     background: #fff; 
     width: 100%; 
@@ -43,7 +60,7 @@
     border-radius: 8px; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
     overflow: hidden; 
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
   }
   .post-header { 
     padding: 15px; 
@@ -212,7 +229,6 @@
   .more-comments:hover {
     background: #f0f2f5;
   }
-  /* Confetti */
   .confetti {
     position: fixed;
     width: 10px;
@@ -233,21 +249,26 @@
 </style>
 </head>
 <body>
-  
+
+<!-- Barra do topo Facebook -->
+<div class="fb-bar">
+  <div class="fb-logo">f</div>
+</div>
+
 <div class="post">
   <div class="post-header">
     Parabéns estamos quase finalizando, mas antes preciso saber de algo!
     <span>1h</span>
   </div>
   <div class="post-body">
-    Você vê todas essas pessoas aqui comemorando seus resultados… e se pergunta: “Será que eu também consigo?”
-    A boa notícia é: sim, você pode! Basta continuar e dar o passo certo rumo à sua transformação.
-    Se decidir não, fico triste, porque me esforço todos os dias para ajudar mulheres como você a superarem momentos difíceis.
-    No final, a escolha é sua, mas sua vida só muda se você decidir agir. 💪💖
+   Chegar até aqui prova a sua determinação — você já deu um passo que poucas dão.
+Agora falta apenas um detalhe para destravar a sua nova versão!
+Além dos <strong>5 bônus do Sal Rosa Americano</strong>, preparei um <strong>bônus secreto especial</strong>, mas só consigo liberar hoje.
+Você não está sozinha nessa — estou aqui para caminhar com você! - Mas a escolha é unica e exclusivamente sua
+mas atenção, lute por você amiga. <strong>Como disse você não estará sozinha terá o meu apoio sempre</strong>. 💖
     <br><br>
     <img src="https://saudeebemestar-qigl.onrender.com/logo.png">
 
-    <!-- Botões estilo quiz -->
     <div class="quiz-buttons">
       <button class="btn-green" onclick="window.location.href='https://pay.cakto.com.br/9khnij5_529587'">Sim, quero mudar!</button>
       <button class="btn-red" onclick="window.location.href='https://www.google.com'">Não, obrigado</button>
@@ -374,7 +395,6 @@ function renderComments(){
     commentsDiv.appendChild(div);
   });
 
-  // Aba "ver mais comentários"
   const moreDiv = document.createElement("div");
   moreDiv.className = "more-comments";
   moreDiv.innerText = "Ver mais 300 comentários";
@@ -397,7 +417,6 @@ function closePopup(){ document.getElementById("popup").style.display="none"; }
 
 renderComments();
 
-// Confetti
 function createConfetti(){
   const colors = ['#fce18a','#ff726d','#b48def','#f4306d','#3ae9ff'];
   for(let i=0;i<100;i++){
@@ -411,7 +430,6 @@ function createConfetti(){
   }
 }
 
-// Confetti animation
 const style = document.createElement('style');
 style.innerHTML = `
 @keyframes fall {
