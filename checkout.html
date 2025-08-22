@@ -149,6 +149,11 @@
     document.getElementById("checkoutFrame").src = url;
     document.getElementById("checkoutModal").classList.remove("hidden");
     document.body.style.overflow = "hidden"; // trava scroll
+
+    // Dispara o evento do pixel da UTMify
+    if (window.utms && typeof window.utms.track === "function") {
+      window.utms.track("InitiateCheckout");
+    }
   }
 
   function fecharCheckout() {
@@ -156,6 +161,7 @@
     document.body.style.overflow = "auto"; // libera scroll
   }
 </script>
+
 
 
         
