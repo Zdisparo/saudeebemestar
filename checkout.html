@@ -154,6 +154,11 @@
     if (window.utms && typeof window.utms.track === "function") {
       window.utms.track("InitiateCheckout");
     }
+
+    // Dispara o evento do Meta Pixel
+    if (typeof fbq === "function") {
+      fbq('track', 'InitiateCheckout');
+    }
   }
 
   function fecharCheckout() {
@@ -161,6 +166,7 @@
     document.body.style.overflow = "auto"; // libera scroll
   }
 </script>
+
 
 
 
