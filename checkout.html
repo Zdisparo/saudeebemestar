@@ -140,33 +140,33 @@
   </div>
 </div>
 
+<!-- Iframe já no HTML -->
+<iframe id="checkoutFrame" class="w-full h-full border-0" src="https://pay.cakto.com.br/9khnij5_529587"></iframe>
+
 <script>
   function abrirCheckout() {
-    var url = "https://pay.cakto.com.br/9khnij5_529587" + window.location.search;
-    var frame = document.getElementById("checkoutFrame");
-
-    // Define o src apenas uma vez para evitar loop de PageView
-    if (!frame.src) frame.src = url;
-
     document.getElementById("checkoutModal").classList.remove("hidden");
     document.body.style.overflow = "hidden"; // trava scroll
 
-    // Dispara evento do UTMify
-    if (window.utms && typeof window.utms.track === "function") {
+    // Dispara evento do UTMify apenas uma vez
+    if (!window.checkoutTracked && window.utms && typeof window.utms.track === "function") {
         window.utms.track("InitiateCheckout");
+        window.checkoutTracked = true;
     }
 
-    // Dispara evento do Meta Pixel
-    if (typeof fbq === "function") {
+    // Dispara evento do Meta Pixel apenas uma vez
+    if (!window.checkoutTrackedFB && typeof fbq === "function") {
         fbq('track', 'InitiateCheckout');
+        window.checkoutTrackedFB = true;
     }
   }
 
   function fecharCheckout() {
     document.getElementById("checkoutModal").classList.add("hidden");
-    document.body.style.overflow = "auto"; // libera scroll
+    document.body.style.overflow = "auto";
   }
 </script>
+
 
 
 
