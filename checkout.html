@@ -155,11 +155,11 @@
       window.utms.track("InitiateCheckout");
     }
 
-    // Dispara o evento do Meta Pixel
-   // if (typeof fbq === "function") {
-     // fbq('track', 'InitiateCheckout');
-    //}
-  //}
+     Dispara o evento do Meta Pixel
+    if (typeof fbq === "function") {
+      fbq('track', 'InitiateCheckout');
+    }
+  }
 
   function fecharCheckout() {
     document.getElementById("checkoutModal").classList.add("hidden");
