@@ -276,5 +276,48 @@
       <p class="mt-4 text-[11px] text-neutral-500">Resultados variam. Use junto de hábitos saudáveis. Consulte um profissional se tiver condições pré-existentes.</p>
     </div>
   </section>
+
+<!-- POPUP AGRESSIVO -->
+<div id="promoPopup" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center hidden">
+  <div class="bg-white text-black rounded-xl shadow-2xl max-w-sm w-full p-6 text-center relative">
+    <!-- Fechar -->
+    <button onclick="fecharPopup()" class="absolute top-2 right-3 text-gray-600 hover:text-black text-2xl font-bold">&times;</button>
+    
+    <h2 class="text-2xl font-extrabold text-rose-600">⚡ PROMOÇÃO RELÂMPAGO ⚡</h2>
+    <p class="mt-4 text-lg font-semibold">
+      De <span class="line-through text-gray-500">R$ 47,00</span>  
+      <span class="text-emerald-600 font-bold text-2xl">por apenas R$ 29,90</span>  
+      <span class="block mt-1 text-red-600 font-bold uppercase">Só Hoje!</span>
+    </p>
+    
+    <!-- Botão -->
+    <button onclick="irParaCheckout()" 
+       class="mt-6 inline-block px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold rounded-lg shadow-lg transition">
+      ACESSO IMEDIATO
+    </button>
+  </div>
+</div>
+
+<script>
+  // Mostra o popup 1s após carregar
+  window.onload = function() {
+    setTimeout(() => {
+      document.getElementById("promoPopup").classList.remove("hidden");
+      document.body.style.overflow = "hidden"; // trava scroll
+    }, 1000);
+  };
+
+  function fecharPopup() {
+    document.getElementById("promoPopup").classList.add("hidden");
+    document.body.style.overflow = "auto"; // libera scroll
+  }
+
+  function irParaCheckout() {
+    fecharPopup(); // fecha popup
+    document.getElementById("pagar").scrollIntoView({ behavior: "smooth" }); // desce pro checkout
+  }
+</script>
+
+  
 </body>
 </html>
