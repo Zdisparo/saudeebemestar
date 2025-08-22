@@ -173,20 +173,28 @@
 
 <script>
   function abrirCheckout() {
-    // Puxa o link com tracking dinâmico
     var url = "https://pay.cakto.com.br/9khnij5_529587" + window.location.search;
-    document.getElementById("checkoutFrame").src = url;
+    var frame = document.getElementById("checkoutFrame");
+
+    // Define o src toda vez que abrir, mas adiciona flag para disparar evento apenas uma vez
+    if (!frame.dataset.loaded) {
+        frame.src = url;
+        frame.dataset.loaded = "true"; // marca como carregado para não disparar pixel múltiplas vezes
+    }
+
     document.getElementById("checkoutModal").classList.remove("hidden");
     document.body.style.overflow = "hidden"; // trava scroll
 
-    // Dispara o evento do pixel da UTMify
-    if (window.utms && typeof window.utms.track === "function") {
-      window.utms.track("InitiateCheckout");
+    // Dispara evento do UTMify **uma vez**
+    if (!window.checkoutTracked && window.utms && typeof window.utms.track === "function") {
+        window.utms.track("InitiateCheckout");
+        window.checkoutTracked = true;
     }
 
-     //Dispara o evento do Meta Pixel
-    if (typeof fbq === "function") {
-      fbq('track', 'InitiateCheckout');
+    // Dispara evento do Meta Pixel **uma vez**
+    if (!window.checkoutTrackedFB && typeof fbq === "function") {
+        fbq('track', 'InitiateCheckout');
+        window.checkoutTrackedFB = true;
     }
   }
 
@@ -195,6 +203,7 @@
     document.body.style.overflow = "auto"; // libera scroll
   }
 </script>
+
 
 
 
