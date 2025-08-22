@@ -130,6 +130,45 @@
   PAGAR AGORA — ACESSO IMEDIATO
 </button>
 
+<!-- Modal -->
+<div id="checkoutModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center">
+  <div class="relative bg-white rounded-2xl w-full max-w-2xl h-[90vh] overflow-hidden shadow-2xl">
+    <!-- Botão fechar -->
+    <button onclick="fecharCheckout()" class="absolute top-3 right-3 text-black/60 hover:text-black text-2xl font-bold">&times;</button>
+    <!-- Iframe dinâmico do Cakto -->
+    <iframe id="checkoutFrame" class="w-full h-full border-0"></iframe>
+  </div>
+</div>
+
+<script>
+  function abrirCheckout() {
+    var url = "https://pay.cakto.com.br/9khnij5_529587" + window.location.search;
+    var frame = document.getElementById("checkoutFrame");
+
+    // Define o src apenas uma vez para evitar loop de PageView
+    if (!frame.src) frame.src = url;
+
+    document.getElementById("checkoutModal").classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // trava scroll
+
+    // Dispara evento do UTMify
+    if (window.utms && typeof window.utms.track === "function") {
+        window.utms.track("InitiateCheckout");
+    }
+
+    // Dispara evento do Meta Pixel
+    if (typeof fbq === "function") {
+        fbq('track', 'InitiateCheckout');
+    }
+  }
+
+  function fecharCheckout() {
+    document.getElementById("checkoutModal").classList.add("hidden");
+    document.body.style.overflow = "auto"; // libera scroll
+  }
+</script>
+
+
 
 
 <script>
